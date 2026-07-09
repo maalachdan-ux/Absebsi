@@ -1,0 +1,6 @@
+{
+  "name": "Sistem Absensi Pintar MA Al-Achdan",
+  "description": "Aplikasi absensi sekolah real-time berbasis QR Code dan pendeteksi wajah biometrik terintegrasi Cloud Firebase.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

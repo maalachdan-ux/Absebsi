@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom Sleek Interface Styles */
+body {
+  background-color: #f8fafc;
+  font-family: var(--font-sans);
+}
+
+.sleek-sidebar {
+  background: #064e3b;
+  color: white;
+}
+
+.sleek-active-nav {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #34d399;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.scan-overlay-guide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  border: 2px solid #34d399;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.55);
+  border-radius: 20px;
+}
+
+/* Printable student card styling */
+@media print {
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  /* Hide all elements on page by default */
+  body * {
+    visibility: hidden;
+  }
+  /* Show only the dedicated print area */
+  #print-area, #print-area * {
+    visibility: visible;
+  }
+  #print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: white !important;
+  }
+  
+  /* Prevent cards from breaking across pages */
+  .card-print-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* KTP Size Card styling helper */
+.ktp-card {
+  width: 85.6mm;
+  height: 53.98mm;
+  border-radius: 4mm;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

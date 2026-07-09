@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "students": {
+      "title": "Students",
+      "description": "Student records of MA Al-Achdan",
+      "type": "object",
+      "properties": {
+        "nisn": { "type": "string", "description": "NISN (Nomor Induk Siswa Nasional)" },
+        "name": { "type": "string", "description": "Student full name" },
+        "class": { "type": "string", "description": "Class room" },
+        "phone": { "type": "string", "description": "Parents WhatsApp number" },
+        "photoUrl": { "type": "string", "description": "Student base64 photo for card" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["nisn", "name", "class", "phone"]
+    },
+    "attendance": {
+      "title": "Attendance",
+      "description": "Daily real-time attendance records",
+      "type": "object",
+      "properties": {
+        "nisn": { "type": "string", "description": "NISN of the student" },
+        "name": { "type": "string", "description": "Name of the student" },
+        "class": { "type": "string", "description": "Class of the student" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "type": { "type": "string", "enum": ["Masuk", "Pulang"] },
+        "status": { "type": "string", "enum": ["Hadir", "Sakit", "Izin", "Alfa"] },
+        "phone": { "type": "string", "description": "Parents WhatsApp number" },
+        "notes": { "type": "string", "description": "Additional note (e.g., Tepat Waktu, Terlambat)" },
+        "photoUrl": { "type": "string", "description": "Captured photo on scan or student photo" }
+      },
+      "required": ["nisn", "name", "class", "timestamp", "type", "status"]
+    }
+  },
+  "firestore": {
+    "students/{studentId}": {
+      "schema": "students",
+      "description": "Collection of student records"
+    },
+    "attendance/{attendanceId}": {
+      "schema": "attendance",
+      "description": "Collection of daily attendance logs"
+    }
+  }
+}
